@@ -10,8 +10,7 @@ public class ForceDetection : MonoBehaviour
     private Rigidbody2D rb;
 
     private float TotalForce = 0;
-    [SerializeField]
-    private static float ForcePerClick = 2f;
+    private static float ForcePerClick = 20f;
 
     [SerializeField]
     private bool Player2 = false;

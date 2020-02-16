@@ -17,7 +17,6 @@ public class WinDetection : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //throw new KeyNotFoundException();
-        print("collission entered");
         if(rb.velocity.magnitude > collision.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude)
         {
             //TODO: find how to tag players to pass to score

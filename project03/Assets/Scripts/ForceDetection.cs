@@ -8,9 +8,10 @@ public class ForceDetection : MonoBehaviour
     [SerializeField]
     private KeyCode Forcebutton = KeyCode.F;
     private Rigidbody2D rb;
-
+    [SerializeField]
     private float TotalForce = 0;
-    private static float ForcePerClick = 20f;
+    private static float ForcePerClick = 5f;
+
 
     [SerializeField]
     private bool Player2 = false;
@@ -31,6 +32,11 @@ public class ForceDetection : MonoBehaviour
 
     public void AddForce()
     {
-        rb.AddForce(new Vector2(TotalForce * (Player2 ? -1 : 1),0));
+        rb.AddForce(new Vector2(TotalForce * (Player2 ? -1 : 1),0), ForceMode2D.Impulse);
+    }
+
+    public float GetTotalForce()
+    {
+        return TotalForce;
     }
 }

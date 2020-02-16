@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private float initialTimer = 10f;
-    private static float player1Score = 0;
-    private static float player2Score = 0;
+    private float initialTimer = 5f;
+    [SerializeField]
+    private KeyCode RestartButton = KeyCode.R;
     private GameObject Player1;
     private GameObject Player2;
 
@@ -20,14 +21,14 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("GameManager");
+        print("P1: " + ScoreKeeper.GetScore(false) + "; P2: " + ScoreKeeper.GetScore(true));
+    }
 
-        if (objs.Length > 1)
-        {
-            Destroy(gameObject);
-        }
-
-        DontDestroyOnLoad(gameObject);
+    private void Start()
+    {
+        Player1 = GameObject.Find("Player1");
+        Player2 = GameObject.Find("Player2");
+        Timer = initialTimer;
     }
 
     private void Update()
@@ -46,35 +47,10 @@ public class GameManager : MonoBehaviour
                 Player2.GetComponent<ForceDetection>().AddForce();
             }
         }
-    }
 
-    private void Start()
-    {
-        Player1 = GameObject.Find("Player1");
-        Player2 = GameObject.Find("Player2");
-        Timer = initialTimer;
-    }
-
-    public void UpdateScore(int player)
-    {
-        if (player < 1 || player > 2)
+        if (Input.GetKeyDown(RestartButton))
         {
-            throw new IndexOutOfRangeException("player must be 1 or 2");
+            SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
         }
-
-        if (player == 1)
-        {
-            player1Score++;
-        }
-        else
-        {
-            player2Score++;
-        }
-    }
-
-    public void Countdown()
-    {
-        //TODO: implement countdown
-        throw new NotImplementedException();
     }
 }

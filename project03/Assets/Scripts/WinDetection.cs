@@ -6,26 +6,28 @@ using UnityEngine;
 public class WinDetection : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private GameManager gm;
+    private static bool hit = false;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //throw new KeyNotFoundException();
-        if(rb.velocity.magnitude > collision.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude)
+        if (!hit)
         {
-            //TODO: find how to tag players to pass to score
-            gm.UpdateScore(int.Parse(gameObject.name.Replace("Player","")));
-        }
-        else
-        {
-            //TODO: instantiate smaller pieces, possible use particle system prefab
-            Destroy(gameObject);
+            if (gameObject.GetComponent<ForceDetection>().GetTotalForce() > collision.gameObject.GetComponent<ForceDetection>().GetTotalForce())
+            {
+                print(int.Parse(gameObject.name.Replace("Player", "")) + " WON");
+                ScoreKeeper.UpdateScore(int.Parse(gameObject.name.Replace("Player", "")));
+            }
+            else
+            {
+                print(int.Parse(gameObject.name.Replace("Player", "")) + " lost");
+                //TODO: instantiate smaller pieces, possible use particle system prefab
+                Destroy(gameObject);
+            }
         }
     }
 }

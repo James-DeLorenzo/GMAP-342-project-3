@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     private bool ForceApplied = false;
 
+    public GameObject P1WinScreen;
+    public GameObject P2WinScreen;
 
     private void Awake()
     {
@@ -26,6 +28,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        HideP1WinScreen();
+        HideP2WinScreen();
+
         Player1 = GameObject.Find("Player1");
         Player2 = GameObject.Find("Player2");
         Timer = initialTimer;
@@ -53,4 +58,25 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
         }
     }
+
+    public void HideP1WinScreen()
+    {
+        P1WinScreen.SetActive(false);
+    }
+
+    public void HideP2WinScreen()
+    {
+        P2WinScreen.SetActive(false);
+    }
+
+    public void ShowP1WinScreen()
+    {
+        P1WinScreen.SetActive(true);
+    }
+
+    public void ShowP2WinScreen()
+    {
+        P2WinScreen.SetActive(true);
+    }
+
 }

@@ -23,6 +23,21 @@ public class ScoreKeeper : MonoBehaviour
         {
             player2Score++;
         }
+
+        if(player1Score >= 5)
+        {
+            FindObjectOfType<GameManager>().ShowP1WinScreen();
+            player1Score = 0;
+            player2Score = 0;
+
+        }
+        else if (player2Score >= 5)
+        {
+            FindObjectOfType<GameManager>().ShowP2WinScreen();
+            player1Score = 0;
+            player2Score = 0;
+        }
+
     }
 
     public static int GetScore(bool player2)

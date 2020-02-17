@@ -12,13 +12,13 @@ public class ForceDetection : MonoBehaviour
     private float TotalForce = 0;
     private static float ForcePerClick = 5f;
 
-
     [SerializeField]
     private bool Player2 = false;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
@@ -27,6 +27,16 @@ public class ForceDetection : MonoBehaviour
         if (Input.GetKeyDown(Forcebutton))
         {
             TotalForce += ForcePerClick;
+
+            if(Player2 == true)
+            {
+                GameObject.Find("ForcebarP2").GetComponent<ForceBar>().AddForce(1);
+            }
+            else
+            {
+                GameObject.Find("ForcebarP1").GetComponent<ForceBar>().AddForce(1);
+            }
+
         }
     }
 

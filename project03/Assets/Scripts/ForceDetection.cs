@@ -32,13 +32,11 @@ public class ForceDetection : MonoBehaviour
     private float currentPercentage;
     #endregion
     #region Global Functions
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentValue = 0;
     }
-
 
     void Update()
     {
@@ -55,7 +53,6 @@ public class ForceDetection : MonoBehaviour
             }
         }
         SetForce(TotalForce);
-
     }
     #endregion
     #region Force Detection Functions
@@ -69,7 +66,6 @@ public class ForceDetection : MonoBehaviour
         return TotalForce;
     }
     #endregion
-
     #region Force Bar Functions
     public void SetForce(float force)
     {

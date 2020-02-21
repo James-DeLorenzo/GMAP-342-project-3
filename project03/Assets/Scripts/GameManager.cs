@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     // use this for the timer UI
     public float Timer { get; private set; }
 
-    private bool ForceApplied = false;
+    public bool ForceApplied { get; private set; } = false;
 
     public GameObject P1WinScreen;
     public GameObject P2WinScreen;

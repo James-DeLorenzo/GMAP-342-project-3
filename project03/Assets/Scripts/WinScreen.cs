@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class P2WinScreen : MonoBehaviour
+public class WinScreen : MonoBehaviour
 {
     public void Retry()
     {

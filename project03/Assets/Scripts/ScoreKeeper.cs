@@ -44,4 +44,10 @@ public class ScoreKeeper : MonoBehaviour
     {
         return player2 ? player2Score : player1Score;
     }
+
+    public static void ResetScore()
+    {
+        player1Score = 0;
+        player2Score = 0;
+    }
 }

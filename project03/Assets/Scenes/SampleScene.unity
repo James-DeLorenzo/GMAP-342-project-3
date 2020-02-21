@@ -207,7 +207,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 87596446}
-  - component: {fileID: 87596447}
   m_Layer: 5
   m_Name: ForcebarP2
   m_TagString: Untagged
@@ -231,26 +230,11 @@ RectTransform:
   m_Father: {fileID: 628812057}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 455, y: 0}
-  m_SizeDelta: {x: 30, y: 400}
+  m_AnchorMin: {x: 0.94100004, y: 0.14079535}
+  m_AnchorMax: {x: 0.97300005, y: 0.857614}
+  m_AnchoredPosition: {x: 2, y: 0.5}
+  m_SizeDelta: {x: -2, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &87596447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 87596445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45940d88fd7a1de4f8e0dcd853e81907, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ImgForceBar: {fileID: 1113551810}
-  Max: 40
-  Min: 0
 --- !u!4 &135017300 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4285403967471762727, guid: e03552284b18b3f459969bb27518ae10,
@@ -693,10 +677,10 @@ RectTransform:
   m_Father: {fileID: 628812057}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 221.94}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.42000002, y: 0.8737954}
+  m_AnchorMax: {x: 0.57967705, y: 0.924}
+  m_AnchoredPosition: {x: 0.5, y: -0.05999756}
+  m_SizeDelta: {x: 1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &356428035
 MonoBehaviour:
@@ -759,7 +743,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 484092556}
-  - component: {fileID: 484092557}
   m_Layer: 5
   m_Name: ForcebarP1
   m_TagString: Untagged
@@ -783,26 +766,11 @@ RectTransform:
   m_Father: {fileID: 628812057}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -455, y: 0}
-  m_SizeDelta: {x: 30, y: 400}
+  m_AnchorMin: {x: 0.025, y: 0.14079535}
+  m_AnchorMax: {x: 0.058505062, y: 0.857614}
+  m_AnchoredPosition: {x: -1.5, y: 0.5}
+  m_SizeDelta: {x: -3, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &484092557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484092555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45940d88fd7a1de4f8e0dcd853e81907, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ImgForceBar: {fileID: 910368385}
-  Max: 40
-  Min: 0
 --- !u!1 &496986616
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,10 +804,10 @@ RectTransform:
   m_Father: {fileID: 628812057}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 356.5, y: 230.5}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.77800006, y: 0.88640934}
+  m_AnchorMax: {x: 0.94100004, y: 0.94200003}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -1, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &496986618
 MonoBehaviour:
@@ -1316,7 +1284,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forcebutton: 102
   TotalForce: 0
+  ForceReductionPerUpdate: 0.5
   Player2: 0
+  ImgForceBar: {fileID: 910368385}
+  Max: 200
+  Min: 0
 --- !u!50 &694064078
 Rigidbody2D:
   serializedVersion: 4
@@ -2463,7 +2435,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forcebutton: 106
   TotalForce: 0
+  ForceReductionPerUpdate: 0.5
   Player2: 1
+  ImgForceBar: {fileID: 1113551810}
+  Max: 200
+  Min: 0
 --- !u!50 &1283678590
 Rigidbody2D:
   serializedVersion: 4
@@ -3334,10 +3310,10 @@ RectTransform:
   m_Father: {fileID: 628812057}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -356.5, y: 230.5}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.058505062, y: 0.88640934}
+  m_AnchorMax: {x: 0.22029291, y: 0.94200003}
+  m_AnchoredPosition: {x: 0.5, y: 0}
+  m_SizeDelta: {x: 0, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2016838397
 MonoBehaviour:

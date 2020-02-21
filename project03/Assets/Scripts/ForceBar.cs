@@ -7,14 +7,14 @@ public class ForceBar : MonoBehaviour
 {
     public Image ImgForceBar;
 
-    public int Max;
-    public int Min;
+    public float Max;
+    public float Min;
 
-    private int currentValue;
+    private float currentValue;
 
     private float currentPercentage;
 
-    public void SetForce(int force)
+    public void SetForce(float force)
     {
         if (force != currentValue)
         {
@@ -26,13 +26,13 @@ public class ForceBar : MonoBehaviour
             else
             {
                 currentValue = force;
-                currentPercentage = (float)currentValue / (float)(Max - Min);
+                currentPercentage = currentValue / (Max - Min);
             }
         }
         ImgForceBar.fillAmount = currentPercentage;
     }
 
-    public void AddForce(int addForce)
+    public void AddForce(float addForce)
     {
         SetForce((currentValue + addForce));
     }

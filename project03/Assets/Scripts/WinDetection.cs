@@ -33,7 +33,6 @@ public class WinDetection : MonoBehaviour
             else
             {
                 print(int.Parse(gameObject.name.Replace("Player", "")) + " lost");
-                //TODO: instantiate smaller pieces, possible use particle system prefab
                 GameObject Piece1 = Instantiate(piecePrefab1, spawnPoint1.position, spawnPoint1.rotation);
                 GameObject Piece2 = Instantiate(piecePrefab2, spawnPoint2.position, spawnPoint2.rotation);
                 GameObject Piece3 = Instantiate(piecePrefab3, spawnPoint3.position, spawnPoint3.rotation);

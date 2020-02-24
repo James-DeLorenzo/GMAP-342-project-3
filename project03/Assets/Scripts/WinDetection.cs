@@ -22,21 +22,21 @@ public class WinDetection : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (!hit)
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
-            if (gameObject.GetComponent<ForceDetection>().GetTotalForce() > collision.gameObject.GetComponent<ForceDetection>().GetTotalForce())
+            if (gameObject.GetComponent<HealthBar>().GetCurrentHealth() > 0f && collision.gameObject.GetComponent<HealthBar>().GetCurrentHealth() <= 0f)
             {
-                print(int.Parse(gameObject.name.Replace("Player", "")) + " WON");
                 ScoreKeeper.UpdateScore(int.Parse(gameObject.name.Replace("Player", "")));
             }
-            else
+            else if(gameObject.GetComponent<HealthBar>().GetCurrentHealth() <= 0f && collision.gameObject.GetComponent<HealthBar>().GetCurrentHealth() > 0f)
             {
-                print(int.Parse(gameObject.name.Replace("Player", "")) + " lost");
+                Debug.Log(gameObject.GetComponent<HealthBar>().GetCurrentHealth());
+                Debug.Log("death");
                 GameObject Piece1 = Instantiate(piecePrefab1, spawnPoint1.position, spawnPoint1.rotation);
                 GameObject Piece2 = Instantiate(piecePrefab2, spawnPoint2.position, spawnPoint2.rotation);
                 GameObject Piece3 = Instantiate(piecePrefab3, spawnPoint3.position, spawnPoint3.rotation);
                 Destroy(gameObject);
+                FindObjectOfType<GameManager>().ShowRoundScreen();
             }
         }
     }

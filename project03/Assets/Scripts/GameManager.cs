@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private float initialTimer = 5f;
+
     [SerializeField]
-    private KeyCode RestartButton = KeyCode.R;
+    //taken out due to addition of rounds screen
+    //private KeyCode RestartButton = KeyCode.R;
     private GameObject Player1;
     private GameObject Player2;
 
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject P1WinScreen;
     public GameObject P2WinScreen;
+    public GameObject RoundScreen;
 
     private void Awake()
     {
@@ -30,6 +33,7 @@ public class GameManager : MonoBehaviour
     {
         HideP1WinScreen();
         HideP2WinScreen();
+        HideRoundScreen();
 
         Player1 = GameObject.Find("Player1");
         Player2 = GameObject.Find("Player2");
@@ -45,7 +49,8 @@ public class GameManager : MonoBehaviour
         else
         {
             Timer = 0;
-            if (!ForceApplied)
+            //if (!ForceApplied)
+            if (ForceApplied == false)
             {
                 ForceApplied = true;
                 Player1.GetComponent<ForceDetection>().AddForce();
@@ -53,10 +58,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(RestartButton))
-        {
-            SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
-        }
+        //taken out due to addition of rounds screen
+        //if (Input.GetKeyDown(RestartButton))
+        //{
+        //    SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
+        //}
     }
 
     public void HideP1WinScreen()
@@ -69,6 +75,11 @@ public class GameManager : MonoBehaviour
         P2WinScreen.SetActive(false);
     }
 
+    public void HideRoundScreen()
+    {
+        RoundScreen.SetActive(false);
+    }
+
     public void ShowP1WinScreen()
     {
         P1WinScreen.SetActive(true);
@@ -77,6 +88,11 @@ public class GameManager : MonoBehaviour
     public void ShowP2WinScreen()
     {
         P2WinScreen.SetActive(true);
+    }
+
+    public void ShowRoundScreen()
+    {
+        RoundScreen.SetActive(true);
     }
 
 }
